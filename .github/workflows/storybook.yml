@@ -1,0 +1,55 @@
+# Bygger Storybook och publicerar den på GitHub Pages vid varje push till main.
+#
+# Detta rör inte npm-paketet. Paketet byggs och publiceras bara manuellt med
+# `npm run release -- --publish`, eftersom designsystemet är work in progress.
+name: Storybook
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Låt en pågående deploy bli klar, men köa bara den senaste väntande.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typkontroll
+        run: npm run typecheck
+
+      - name: Bygg Storybook
+        run: npm run build-storybook
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: storybook-static
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
