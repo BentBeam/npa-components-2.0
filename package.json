@@ -1,7 +1,7 @@
 {
   "name": "@npa-eval/components2.0",
   "version": "0.1.0",
-  "description": "NPA Logistik Designsystem 2.0 \u2013 React- och Tailwind-komponenter genererade fr\u00e5n NPA:s Figma-bibliotek.",
+  "description": "NPA Logistik Designsystem 2.0 – React- och Tailwind-komponenter genererade från NPA:s Figma-bibliotek.",
   "license": "UNLICENSED",
   "type": "module",
   "sideEffects": [
@@ -29,7 +29,10 @@
     "icons:generate": "node scripts/generate-icons.mjs",
     "release": "node scripts/release.mjs",
     "figma:validate": "figma connect publish --dry-run --label React",
-    "figma:publish": "figma connect publish --label React"
+    "figma:publish": "figma connect publish --label React",
+    "check:komponenter": "node scripts/check-komponenter.mjs",
+    "check": "npm run typecheck && npm run lint && npm run check:komponenter",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "peerDependencies": {
     "react": "^18 || ^19",
@@ -46,6 +49,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.2",
     "bootstrap-icons": "^1.13.1",
+    "chromatic": "^18.9.4",
     "oxlint": "^1.69.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",

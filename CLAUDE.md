@@ -97,3 +97,29 @@ fångar komponenter där märkningen glömts.
 - Skuggor finns inte som stilar i filen.
 - Swatchen `Form/Input Border Hover` på Colors-sidan är bunden till variabeln `Form/Input Border`
   (#afafaf) och inte till någon egen hover-variabel. Koden använder #afafaf, som komponenterna gör.
+
+## Referenskomponent
+
+Nya komponenter ska likna en befintlig, inte bara följa den här filen — modeller
+härmar kod mer tillförlitligt än de följer prosa. **Referens: _ingen än._** Den
+första komponenten som byggs blir referensen, och den här raden uppdateras då
+till att peka ut den.
+
+## Arbetsflöde
+
+Inget skrivs direkt till `main`. En komponent = en gren = en pull request.
+
+Körschemat ligger i `.claude/skills/ny-komponent/SKILL.md` och körs med
+`/ny-komponent <Namn>`. Läs det innan du bygger något, även om du inte kör
+Claude Code.
+
+Innan en PR öppnas ska `npm run check` vara grön: typkontroll, lint och
+husreglerna i `scripts/check-komponenter.mjs`. Samma kontroller körs i CI
+(`.github/workflows/kontroll.yml`) och blockerar sammanslagning.
+
+Chromatic (`.github/workflows/chromatic.yml`) bygger en Storybook per PR och
+jämför den visuellt mot föregående godkända version. Där sker designgranskningen.
+Visuella skillnader fäller inte bygget — en människa godkänner dem i Chromatic.
+
+`npm run release` och `npm run figma:publish` körs **bara på uttrycklig
+begäran**, aldrig som en del av att bygga en komponent.
