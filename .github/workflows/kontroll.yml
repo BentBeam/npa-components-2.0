@@ -1,0 +1,36 @@
+# Kontrollerna som måste vara gröna innan en pull request får slås ihop med main.
+#
+# Detta är den maskinella halvan av granskningen: typer, lint, husregler och att
+# Storybook överhuvudtaget går att bygga. Den mänskliga halvan – ser komponenten
+# ut som i Figma – sker i Chromatics preview, se chromatic.yml.
+name: Kontroll
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  kontroll:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typkontroll
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Husregler för komponenter
+        run: npm run check:komponenter
+
+      - name: Storybook går att bygga
+        run: npm run build-storybook

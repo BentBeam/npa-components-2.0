@@ -1,0 +1,39 @@
+# Publicerar Storybook till Chromatic vid varje pull request.
+#
+# Chromatic ger två saker: en klickbar Storybook-länk för just den här grenen,
+# och en pixeljämförelse mot föregående godkända version. Designgranskningen
+# sker där – inte i kodfilerna.
+#
+# Kräver hemligheten CHROMATIC_PROJECT_TOKEN i repots Settings → Secrets and
+# variables → Actions.
+name: Chromatic
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # Chromatic behöver historiken för att veta vad den ska jämföra mot.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # Visuella skillnader är ofta avsiktliga. De ska godkännas i
+          # Chromatic av en människa, inte fälla bygget automatiskt.
+          exitZeroOnChanges: true
+          # Bara ändrade stories jämförs om inget annat ändrats – billigare.
+          onlyChanged: true

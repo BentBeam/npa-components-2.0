@@ -7,6 +7,9 @@ Paketnamn: `@npa-eval/components2.0`
 
 ## Kom igång
 
+Arbetar du med designsystemet men inte med kod? Läs **[docs/ARBETSSATT.md](docs/ARBETSSATT.md)** —
+den beskriver hela flödet från Figma till färdig komponent utan att förutsätta att du programmerar.
+
 ```bash
 npm install
 npm run storybook        # Storybook på http://localhost:6007
@@ -20,6 +23,9 @@ npm run storybook        # Storybook på http://localhost:6007
 | `npm run build` | Bygger npm-paketet till `dist/` |
 | `npm run icons:generate` | Genererar om ikonkomponenterna från `src/icons/svg/` |
 | `npm run typecheck` | TypeScript utan att skriva filer |
+| `npm run lint` | Lint |
+| `npm run check` | Typkontroll + lint + husregler — kör denna före varje pull request |
+| `npm run check:komponenter` | Bara husreglerna för komponentmappar |
 | `npm run release` | Bygger och packar en `.tgz` — publicerar inte |
 | `npm run release -- --minor --publish` | Höjer version, bygger och publicerar till npm |
 | `npm run figma:validate` | Torrkör Code Connect |
@@ -38,10 +44,19 @@ src/
   foundations/  Storybook-sidor för färger, typografi, spacing, grid, ikoner
   components/   en mapp per komponent
   docs/         Kom igång-sidorna
+docs/
+  ARBETSSATT.md   flödet från Figma till färdig komponent, för hela teamet
 scripts/
   generate-icons.mjs
+  check-komponenter.mjs
   release.mjs
 ```
+
+## Arbetssätt
+
+Inget skrivs direkt till `main`. En komponent = en gren = en pull request, som
+kontrolleras automatiskt (`.github/workflows/kontroll.yml`) och granskas visuellt i
+Chromatic (`.github/workflows/chromatic.yml`). Se [docs/ARBETSSATT.md](docs/ARBETSSATT.md).
 
 ## Typsnitt och licens
 
