@@ -16,7 +16,8 @@ Branch: `aKLtW0yCJjjEVh2VvOxyWi`
 | --- | --- | --- |
 | 1 | Tokens: radius, ringfärger, textfärger | **Klar** 2026-09-21 |
 | — | Defekträttning och textstilsdokumentation | **Klar** 2026-09-21 |
-| 2 | `Label` (elektron) | Ej specad |
+| — | Granskning och rättning av Colors-sidan | **Klar** 2026-09-21 |
+| 2 | `Label` (elektron) | **Klar** 2026-09-21 |
 | 3 | `FieldMessage` (elektron) | Ej specad |
 | 4 | `FieldShell` (atom) | Ej specad |
 | 5 | `Input Field` byggs om som pilot | Ej specad |
@@ -185,3 +186,88 @@ motsägelsen mellan den och huvudtabellen är borta.
 Kvarstår: kolumnen `Användning` har texten `WIP` på fem rader — Heading/H3,
 Heading/H4, Body/Medium, Body/Strong och UI/Label. Det är designerns egna
 platshållare och inget jag fyllt i.
+
+---
+
+## Steg 2 — Label (elektron)
+
+Utfört 2026-09-21.
+
+Alla elektroner samlas på en egen sida, **`Elektroner`**, placerad direkt efter
+`_Library components`.
+
+### Label
+
+Variantset `Label` (2009:7).
+
+| Egenskap | Typ | Värden |
+| --- | --- | --- |
+| `State` | Variant | `Default`, `Disabled` |
+| `Text` | Text | Standardvärde `Label` |
+
+Textstil `UI/Label` (CocogoosePro Semilight 14/20). Färgen är **bunden till
+variabel**, inte hårdkodad: `Text/Default` i Default och `Text/Disabled` i
+Disabled. Disabled-färgen är hämtad ur Input Fields egna disabled-varianter, där
+etiketten redan ligger på `Text/Disabled`.
+
+Auto-layout horisontellt med 4 px mellanrum, så ett framtida `RequiredMarker`
+kan läggas till utan att strukturen ändras.
+
+### Öppen fråga
+
+`Required` finns inte som egenskap. Biblioteket har idag ingen obligatorisk-
+markör någonstans, så att lägga till en innebär att designa något nytt snarare
+än att spegla det som finns. Tas när markören är bestämd.
+
+---
+
+## Granskning av Colors-sidan
+
+Utfört 2026-09-21. 162 swatchar granskade.
+
+Varje swatch är en ram med en rektangel som bär variabelbindningen plus två
+textrader: tokennamnet och vilken primitiv den aliasar. Bindningarna var
+korrekta i 154 av 162 fall.
+
+### Rättat
+
+Sex bildtexter angav fel primitiv. Rätt värde härleddes ur variabeln i stället
+för att skrivas in för hand.
+
+| Swatch | Stod | Är |
+| --- | --- | --- |
+| `Action/Danger Background Hover` | Red/600 | Red/700 |
+| `Action/Success Background Hover` | Green/600 | Green/700 |
+| `Form/Input Border Success` | Green/200 | Green/500 |
+| `Status/Error Text` | Red/900 | Red/700 |
+| `Status/Success Border` | Green/400 | Green/500 |
+| `Border/Focus` | Blue/500 | Black |
+
+`Form/Input Border` (rektangel 11:145) visade den hårdkodade färgen `#c8c8c8`
+medan variabeln med samma namn är `#afafaf`. Swatchen visade alltså fel färg.
+Den är nu bunden till variabeln och visar `#afafaf`.
+
+### Kvarstår — behöver beslut
+
+`Form/Input Border Hover` dokumenterar en token som inte finns. Rektangeln är
+bunden till `Form/Input Border`. Antingen tas swatchen bort, eller så skapas en
+riktig hover-token.
+
+### Kvarstår — 21 variabler utan swatch
+
+Sexton av dem är sedan tidigare odokumenterade: `White`, `Black`, `Grey/75`,
+`Action/Primary Disabled Background`, `Action/Success Disabled Background`,
+`Action/Danger Disabled Background`, `Action/Secondary Background`,
+`Action/Secondary Background Hover`, `Action/Secondary Disabled Background`,
+`Action/Secondary Text`, `Action/Ghost Disabled Border`,
+`Action/Ghost Disabled Text`, `Action/Tertiary Background`,
+`Action/Tertiary Background Hover`, `Action/Tertiary Text`,
+`Action/Tertiary Disabled Text`.
+
+De fem övriga är de som skapades i steg 1: `Form/Help Text`, `Form/Error Text`
+och `Focus/Ring Default|Success|Error`.
+
+### Följd för koden
+
+`Grey/75` finns som primitiv i Figma men saknas i `src/styles/tokens.css`, som
+bara har steg 50–950. Behöver läggas till vid nästa tokensynk.
