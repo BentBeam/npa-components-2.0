@@ -1,0 +1,72 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Kom igång/Arbetsflöde" />
+
+# Arbetsflöde
+
+Så här går en komponent från Figma till npm.
+
+## 1. Läs komponenten i Figma
+
+Hämta noden med Figmas MCP-verktyg — `get_design_context` för uppbyggnad och `get_variable_defs`
+för vilka tokens den binder. Varianterna i Figma (`State=Hover`, `Size=Large` …) blir komponentens
+props. Finns ingen variant i Figma ska den inte finnas i koden heller.
+
+## 2. Bygg komponenten
+
+En mapp per komponent under `src/components/`:
+
+```
+src/components/Button/
+  Button.tsx          komponenten
+  Button.stories.tsx  stories, en per variant
+  Button.figma.ts     Code Connect
+  index.ts
+```
+
+Bara Tailwind-klasser, inga egna CSS-filer. Alla värden via tokens.
+
+En fallgrop värd att känna till: två Tailwind-klasser för samma CSS-egenskap på samma element
+avgörs av ordningen i den genererade stilmallen, inte av ordningen i markupen. Villkora klassen i
+stället för att lita på att den sista vinner.
+
+## 3. Skriv stories
+
+Svenska titlar, `Komponenter/<Namn>`. En story per variant som finns i Figma, plus en översikt.
+Kontrollerade komponenter behöver `useArgs` från `storybook/preview-api` i en `render` i metan —
+annars går de inte att interagera med i Storybook.
+
+## 4. Koppla Code Connect
+
+Template-formatet (`.figma.ts`), inte det gamla `figma.connect()`:
+
+```ts
+import figma from "@figma/code-connect";
+
+export default {
+  id: "8:32",
+  imports: ["import { Button } from '@npa-eval/components2.0'"],
+  example: figma.code`<Button variant="primary">Etikett</Button>`,
+};
+```
+
+Validera och publicera:
+
+```bash
+npm run figma:validate
+npm run figma:publish
+```
+
+`--label React` ligger redan i kommandot. Utan den publiceras template-filer under label `Code` och
+skapar en parallell uppsättning i stället för att uppdatera de befintliga.
+
+## 5. Släpp paketet — när det passar
+
+Det här är det enda steget som inte sker löpande. Komponenten syns i Storybook direkt, men hamnar i
+npm-paketet först när någon kör:
+
+```bash
+npm run release -- --minor --publish
+```
+
+Utan `--publish` byggs bara en `.tgz` lokalt, vilket är bra för att testa i en app innan något går ut.

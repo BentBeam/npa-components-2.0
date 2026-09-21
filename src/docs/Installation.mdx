@@ -1,0 +1,52 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Kom igång/Installation" />
+
+# Installation
+
+```bash
+npm install @npa-eval/components2.0
+```
+
+Importera stilarna en gång, högst upp i applikationens ingångsfil:
+
+```tsx
+import "@npa-eval/components2.0/styles.css";
+```
+
+Den importen tar med design tokens, Tailwind-temat och Cocogoose Pro-typsnittet. Inget externt
+typsnitt behöver laddas.
+
+Sedan används komponenterna som vanligt:
+
+```tsx
+import { IconSearch } from "@npa-eval/components2.0";
+
+export function Sökfält() {
+  return (
+    <span className="flex items-center gap-2 text-text-default">
+      <IconSearch /> Sök
+    </span>
+  );
+}
+```
+
+## I Figma Make
+
+Lägg till `@npa-eval/components2.0` bland paketen och importera `styles.css` på samma sätt. Då får
+prototypen NPA:s färger, typsnitt och komponenter i stället för Figma Makes standardutseende.
+
+## Tailwind-klasser paketet ger
+
+Temat ligger i `styles.css`, så klasserna fungerar även i en app som inte själv kör Tailwind.
+
+| Sort | Exempel |
+| --- | --- |
+| Färg | `bg-action-primary`, `text-text-secondary`, `border-border-strong` |
+| Spacing | `p-4` (16px), `gap-6` (24px) — motsvarar `spacing/1`…`spacing/12` |
+| Text | `text-h1`, `text-body`, `text-ui`, `text-small` |
+| Vikt | `font-light` (300), `font-semilight` (350), `font-darkmode` (370) |
+| Breakpoint | `tablet:`, `laptop:`, `desktop:` |
+
+Observera att spacing-skalan är NPA:s egen, inte Tailwinds standard. `p-4` är 16px eftersom
+`spacing/4` är 16px — inte för att 4 × 4 = 16.

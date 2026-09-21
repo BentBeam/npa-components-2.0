@@ -1,0 +1,27 @@
+/**
+ * Enda stilfil konsumenten behöver importera:
+ *   import "@npa-eval/components2.0/styles.css";
+ *
+ * Ordningen spelar roll:
+ *   1. fonts.css  – @font-face måste deklareras före allt som använder fonten
+ *   2. tokens.css – CSS-variablerna som temat pekar på
+ *   3. tailwindcss
+ *   4. @source    – krävs explicit, annars hittar Tailwind inte .tsx-filerna
+ *   5. tailwind-theme.css
+ */
+
+@import "./fonts.css";
+@import "./tokens.css";
+@import "tailwindcss";
+
+@source "../";
+
+@import "./tailwind-theme.css";
+@import "./safelist.css";
+
+/* Basrader – sätter typsnitt och textfärg på hela dokumentet. */
+:root {
+  font-family: var(--npa-font-sans);
+  color: var(--npa-text-default);
+  background-color: var(--npa-surface-default);
+}

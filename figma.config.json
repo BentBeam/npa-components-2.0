@@ -1,0 +1,9 @@
+{
+  "codeConnect": {
+    "parser": "react",
+    "include": ["src/components/**/*.figma.ts"],
+    "importPaths": {
+      "src/components/*": "@npa-eval/components2.0"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Kom igång/Introduktion" />
+
+# NPA Logistik Designsystem 2.0
+
+Komponentbiblioteket för NPA Logistik, byggt i React och Tailwind direkt från Figma-biblioteket
+[Design system WIP](https://www.figma.com/design/jMxylLvF8eQlhbRLUUjgaP/Design-system-WIP).
+
+Paketet heter `@npa-eval/components2.0`.
+
+## Vad det är till för
+
+Att prototyper och gränssnitt ser likadana ut oavsett var de byggs — i Claude Code, i Figma Make
+eller för hand. Installerar man paketet får man tokens, typsnitt och komponenter som redan matchar
+designen, i stället för att varje prototyp uppfinner sin egen knapp.
+
+## Vad som finns just nu
+
+Foundation är på plats: färger, typografi, spacing, grid och ikoner. Komponenterna byggs i omgångar
+allteftersom de blir klara i Figma.
+
+Följande sidor i Figma-filen är fortfarande tomma och har därför ingen kod: Pagination,
+Feedback & Alerts, Data Display, Badges & Tags, Overlays, Avatar & User och Menus.
+
+## Principer
+
+**Figma är sanningen.** Koden får inte innehålla varianter som saknas i Figma. Hittar vi något som
+behövs men inte finns i designen läggs det till i Figma först.
+
+**Tokens, inte värden.** Ingen komponent innehåller en hexkod eller ett pixelvärde som inte kommer
+från en token. `src/styles/tokens.css` är single source of truth och speglar Figmas variabler exakt.
+
+**Paketet uppdateras på kommando.** Designsystemet är work in progress. Ändringar syns direkt i
+Storybook, men npm-paketet byggs om bara när någon kör `npm run release`.

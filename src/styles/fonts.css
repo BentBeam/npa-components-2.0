@@ -1,0 +1,39 @@
+/**
+ * Cocogoose Pro – NPA:s varumärkestypsnitt (Zetafonts, kommersiell licens).
+ * Filerna är licensierade till NPA. Se src/fonts/LICENS-Cocogoose.pdf.
+ *
+ * Vikterna heter i Figma Light / Semilight / Darkmode. De är fyra separata
+ * statiska filer, inte en variabel font, så vikterna deklareras exakt.
+ */
+
+@font-face {
+  font-family: "Cocogoose Pro";
+  src: url("../fonts/Cocogoose-Pro-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cocogoose Pro";
+  src: url("../fonts/Cocogoose-Pro-Semilight.woff2") format("woff2");
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cocogoose Pro";
+  src: url("../fonts/Cocogoose-Pro-Darkmode.woff2") format("woff2");
+  font-weight: 370;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cocogoose Pro";
+  src: url("../fonts/Cocogoose-Pro-Text-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

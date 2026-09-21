@@ -1,0 +1,8 @@
+node_modules
+dist
+storybook-static
+*.tgz
+.DS_Store
+
+# Licensdokumentet ligger lokalt, inte i det publika repot.
+src/fonts/LICENS-Cocogoose.pdf

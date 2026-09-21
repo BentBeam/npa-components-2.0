@@ -1,0 +1,262 @@
+/**
+ * Mappar tokens.css till Tailwind-klasser.
+ *
+ * `inline` gör att klasserna pekar direkt på var(--npa-*) i stället för att
+ * duplicera värdena – ändrar man tokens.css slår det igenom utan ombyggnad
+ * av temat.
+ */
+
+@theme inline {
+  /* Färger – primitiver */
+  --color-yellow-50: var(--npa-yellow-50);
+  --color-yellow-100: var(--npa-yellow-100);
+  --color-yellow-200: var(--npa-yellow-200);
+  --color-yellow-300: var(--npa-yellow-300);
+  --color-yellow-400: var(--npa-yellow-400);
+  --color-yellow-500: var(--npa-yellow-500);
+  --color-yellow-600: var(--npa-yellow-600);
+  --color-yellow-700: var(--npa-yellow-700);
+  --color-yellow-800: var(--npa-yellow-800);
+  --color-yellow-900: var(--npa-yellow-900);
+
+  --color-green-50: var(--npa-green-50);
+  --color-green-100: var(--npa-green-100);
+  --color-green-200: var(--npa-green-200);
+  --color-green-300: var(--npa-green-300);
+  --color-green-400: var(--npa-green-400);
+  --color-green-500: var(--npa-green-500);
+  --color-green-600: var(--npa-green-600);
+  --color-green-700: var(--npa-green-700);
+  --color-green-800: var(--npa-green-800);
+  --color-green-900: var(--npa-green-900);
+
+  --color-red-50: var(--npa-red-50);
+  --color-red-100: var(--npa-red-100);
+  --color-red-200: var(--npa-red-200);
+  --color-red-300: var(--npa-red-300);
+  --color-red-400: var(--npa-red-400);
+  --color-red-500: var(--npa-red-500);
+  --color-red-600: var(--npa-red-600);
+  --color-red-700: var(--npa-red-700);
+  --color-red-800: var(--npa-red-800);
+  --color-red-900: var(--npa-red-900);
+
+  --color-orange-50: var(--npa-orange-50);
+  --color-orange-100: var(--npa-orange-100);
+  --color-orange-200: var(--npa-orange-200);
+  --color-orange-300: var(--npa-orange-300);
+  --color-orange-400: var(--npa-orange-400);
+  --color-orange-500: var(--npa-orange-500);
+  --color-orange-600: var(--npa-orange-600);
+  --color-orange-700: var(--npa-orange-700);
+  --color-orange-800: var(--npa-orange-800);
+  --color-orange-900: var(--npa-orange-900);
+
+  --color-blue-50: var(--npa-blue-50);
+  --color-blue-100: var(--npa-blue-100);
+  --color-blue-200: var(--npa-blue-200);
+  --color-blue-300: var(--npa-blue-300);
+  --color-blue-400: var(--npa-blue-400);
+  --color-blue-500: var(--npa-blue-500);
+  --color-blue-600: var(--npa-blue-600);
+  --color-blue-700: var(--npa-blue-700);
+  --color-blue-800: var(--npa-blue-800);
+  --color-blue-900: var(--npa-blue-900);
+
+  --color-grey-50: var(--npa-grey-50);
+  --color-grey-100: var(--npa-grey-100);
+  --color-grey-200: var(--npa-grey-200);
+  --color-grey-300: var(--npa-grey-300);
+  --color-grey-400: var(--npa-grey-400);
+  --color-grey-500: var(--npa-grey-500);
+  --color-grey-600: var(--npa-grey-600);
+  --color-grey-700: var(--npa-grey-700);
+  --color-grey-800: var(--npa-grey-800);
+  --color-grey-900: var(--npa-grey-900);
+  --color-grey-950: var(--npa-grey-950);
+
+  --color-black: var(--npa-black);
+  --color-white: var(--npa-white);
+
+  /* Färger – semantiska */
+  --color-brand-accent: var(--npa-brand-accent);
+  --color-brand-accent-hover: var(--npa-brand-accent-hover);
+  --color-brand-on-accent: var(--npa-brand-on-accent);
+
+  --color-nav-accent: var(--npa-nav-accent);
+  --color-nav-background: var(--npa-nav-background);
+  --color-nav-text: var(--npa-nav-text);
+  --color-nav-footer-accent: var(--npa-nav-footer-accent);
+  --color-nav-breadcrumb-default: var(--npa-nav-breadcrumb-default);
+  --color-nav-breadcrumb-active: var(--npa-nav-breadcrumb-active);
+  --color-nav-tab-active-background: var(--npa-nav-tab-active-background);
+  --color-nav-tab-active-border: var(--npa-nav-tab-active-border);
+  --color-nav-tab-active-text: var(--npa-nav-tab-active-text);
+  --color-nav-tab-hover-background: var(--npa-nav-tab-hover-background);
+  --color-nav-tab-inactive-text: var(--npa-nav-tab-inactive-text);
+
+  --color-action-primary: var(--npa-action-primary-background);
+  --color-action-primary-hover: var(--npa-action-primary-background-hover);
+  --color-action-primary-active: var(--npa-action-primary-background-active);
+  --color-action-primary-disabled: var(--npa-action-primary-disabled-background);
+  --color-action-primary-text: var(--npa-action-primary-text);
+
+  --color-action-secondary: var(--npa-action-secondary-background);
+  --color-action-secondary-hover: var(--npa-action-secondary-background-hover);
+  --color-action-secondary-disabled: var(--npa-action-secondary-disabled-background);
+  --color-action-secondary-text: var(--npa-action-secondary-text);
+
+  --color-action-tertiary: var(--npa-action-tertiary-background);
+  --color-action-tertiary-hover: var(--npa-action-tertiary-background-hover);
+  --color-action-tertiary-text: var(--npa-action-tertiary-text);
+  --color-action-tertiary-disabled-text: var(--npa-action-tertiary-disabled-text);
+
+  --color-action-success: var(--npa-action-success-background);
+  --color-action-success-hover: var(--npa-action-success-background-hover);
+  --color-action-success-disabled: var(--npa-action-success-disabled-background);
+  --color-action-success-text: var(--npa-action-success-text);
+
+  --color-action-danger: var(--npa-action-danger-background);
+  --color-action-danger-hover: var(--npa-action-danger-background-hover);
+  --color-action-danger-disabled: var(--npa-action-danger-disabled-background);
+  --color-action-danger-text: var(--npa-action-danger-text);
+
+  --color-action-ghost-hover: var(--npa-action-ghost-background-hover);
+  --color-action-ghost-border: var(--npa-action-ghost-border);
+  --color-action-ghost-text: var(--npa-action-ghost-text);
+  --color-action-ghost-disabled-border: var(--npa-action-ghost-disabled-border);
+  --color-action-ghost-disabled-text: var(--npa-action-ghost-disabled-text);
+
+  --color-action-disabled: var(--npa-action-disabled-background);
+  --color-action-disabled-border: var(--npa-action-disabled-border);
+  --color-action-disabled-text: var(--npa-action-disabled-text);
+
+  --color-input-bg: var(--npa-form-input-background);
+  --color-input-bg-disabled: var(--npa-form-input-background-disabled);
+  --color-input-bg-error: var(--npa-form-input-background-error);
+  --color-input-bg-success: var(--npa-form-input-background-success);
+  --color-input-border: var(--npa-form-input-border);
+  --color-input-border-disabled: var(--npa-form-input-border-disabled);
+  --color-input-border-error: var(--npa-form-input-border-error);
+  --color-input-border-focus: var(--npa-form-input-border-focus);
+  --color-input-border-success: var(--npa-form-input-border-success);
+  --color-input-placeholder: var(--npa-form-input-placeholder);
+  --color-input-text: var(--npa-form-input-text);
+  --color-input-text-disabled: var(--npa-form-input-text-disabled);
+
+  --color-select-bg: var(--npa-select-background);
+  --color-select-highlighted-row: var(--npa-select-highlighted-row);
+  --color-select-item-hover: var(--npa-select-item-hover-background);
+  --color-select-item-selected: var(--npa-select-item-selected-background);
+  --color-select-item-selected-text: var(--npa-select-item-selected-text);
+  --color-select-section-header: var(--npa-select-section-header-background);
+
+  --color-status-error-bg: var(--npa-status-error-background);
+  --color-status-error-border: var(--npa-status-error-border);
+  --color-status-error-icon: var(--npa-status-error-icon);
+  --color-status-error-text: var(--npa-status-error-text);
+  --color-status-info-bg: var(--npa-status-info-background);
+  --color-status-info-border: var(--npa-status-info-border);
+  --color-status-info-icon: var(--npa-status-info-icon);
+  --color-status-info-text: var(--npa-status-info-text);
+  --color-status-success-bg: var(--npa-status-success-background);
+  --color-status-success-border: var(--npa-status-success-border);
+  --color-status-success-icon: var(--npa-status-success-icon);
+  --color-status-success-text: var(--npa-status-success-text);
+  --color-status-warning-bg: var(--npa-status-warning-background);
+  --color-status-warning-border: var(--npa-status-warning-border);
+  --color-status-warning-icon: var(--npa-status-warning-icon);
+  --color-status-warning-text: var(--npa-status-warning-text);
+
+  --color-table-cell-border: var(--npa-table-cell-border);
+  --color-table-header-bg: var(--npa-table-header-background);
+  --color-table-header-border: var(--npa-table-header-border);
+  --color-table-header-text: var(--npa-table-header-text);
+  --color-table-row-bg: var(--npa-table-row-default-background);
+  --color-table-row-alt-bg: var(--npa-table-row-alternate-background);
+  --color-table-row-hover-bg: var(--npa-table-row-hover-background);
+
+  --color-tag-error-bg: var(--npa-tag-error-background);
+  --color-tag-error-text: var(--npa-tag-error-text);
+  --color-tag-info-bg: var(--npa-tag-info-background);
+  --color-tag-info-text: var(--npa-tag-info-text);
+  --color-tag-success-bg: var(--npa-tag-success-background);
+  --color-tag-success-text: var(--npa-tag-success-text);
+  --color-tag-warning-bg: var(--npa-tag-warning-background);
+  --color-tag-warning-text: var(--npa-tag-warning-text);
+
+  --color-text-default: var(--npa-text-default);
+  --color-text-secondary: var(--npa-text-secondary);
+  --color-text-muted: var(--npa-text-muted);
+  --color-text-disabled: var(--npa-text-disabled);
+  --color-text-link: var(--npa-text-link);
+  --color-text-link-hover: var(--npa-text-link-hover);
+  --color-text-on-brand: var(--npa-text-on-brand);
+  --color-text-on-dark: var(--npa-text-on-dark);
+  --color-text-on-primary: var(--npa-text-on-primary);
+
+  --color-surface-default: var(--npa-surface-default);
+  --color-surface-subtle: var(--npa-surface-subtle);
+  --color-surface-muted: var(--npa-surface-muted);
+  --color-surface-inverse: var(--npa-surface-inverse);
+  --color-surface-overlay: var(--npa-surface-overlay);
+
+  --color-border-default: var(--npa-border-default);
+  --color-border-strong: var(--npa-border-strong);
+  --color-border-stronger: var(--npa-border-stronger);
+  --color-border-primary: var(--npa-border-primary);
+  --color-border-focus: var(--npa-border-focus);
+  --color-border-error: var(--npa-border-error);
+  --color-border-success: var(--npa-border-success);
+
+  /* Spacing – p-1 … p-12 motsvarar spacing/1 … spacing/12 */
+  --spacing-1: var(--npa-spacing-1);
+  --spacing-2: var(--npa-spacing-2);
+  --spacing-3: var(--npa-spacing-3);
+  --spacing-4: var(--npa-spacing-4);
+  --spacing-5: var(--npa-spacing-5);
+  --spacing-6: var(--npa-spacing-6);
+  --spacing-7: var(--npa-spacing-7);
+  --spacing-8: var(--npa-spacing-8);
+  --spacing-9: var(--npa-spacing-9);
+  --spacing-10: var(--npa-spacing-10);
+  --spacing-11: var(--npa-spacing-11);
+  --spacing-12: var(--npa-spacing-12);
+
+  /* Typsnitt */
+  --font-sans: var(--npa-font-sans);
+
+  --font-weight-light: var(--npa-font-weight-light);
+  --font-weight-semilight: var(--npa-font-weight-semilight);
+  --font-weight-darkmode: var(--npa-font-weight-darkmode);
+  --font-weight-regular: var(--npa-font-weight-regular);
+
+  /* Textstilar – text-h1, text-body, text-ui, text-small */
+  --text-h1: var(--npa-text-h1-size);
+  --text-h1--line-height: var(--npa-text-h1-line);
+  --text-h1--font-weight: var(--npa-text-h1-weight);
+  --text-h2: var(--npa-text-h2-size);
+  --text-h2--line-height: var(--npa-text-h2-line);
+  --text-h2--font-weight: var(--npa-text-h2-weight);
+  --text-h3: var(--npa-text-h3-size);
+  --text-h3--line-height: var(--npa-text-h3-line);
+  --text-h3--font-weight: var(--npa-text-h3-weight);
+  --text-h4: var(--npa-text-h4-size);
+  --text-h4--line-height: var(--npa-text-h4-line);
+  --text-h4--font-weight: var(--npa-text-h4-weight);
+
+  --text-body: var(--npa-text-body-size);
+  --text-body--line-height: var(--npa-text-body-line);
+  --text-body--font-weight: var(--npa-text-body-weight);
+
+  --text-ui: var(--npa-text-ui-size);
+  --text-ui--line-height: var(--npa-text-ui-line);
+
+  --text-small: var(--npa-text-small-size);
+  --text-small--line-height: var(--npa-text-small-line);
+
+  /* Breakpoints från grid-tabellen */
+  --breakpoint-tablet: var(--npa-breakpoint-tablet);
+  --breakpoint-laptop: var(--npa-breakpoint-laptop);
+  --breakpoint-desktop: var(--npa-breakpoint-desktop);
+}

@@ -1,0 +1,326 @@
+/**
+ * Design tokens – exakt spegel av variablerna i Figma-filen "Design system WIP".
+ * Källa: https://www.figma.com/design/jMxylLvF8eQlhbRLUUjgaP/Design-system-WIP
+ * Senast synkad: 2026-09-21
+ *
+ * Detta är single source of truth. Ändra aldrig värden här utan att de ändrats i Figma.
+ * Ljust läge endast – inget mörkt tema finns i biblioteket.
+ */
+
+:root {
+  /* ---------------------------------------------------------------- */
+  /* Primitiver – palett 50–900. Bind aldrig dessa direkt i komponenter, */
+  /* använd de semantiska tokens längre ned.                            */
+  /* ---------------------------------------------------------------- */
+
+  --npa-yellow-50: #fdfcec;
+  --npa-yellow-100: #f8f5c4;
+  --npa-yellow-200: #f5f0a8;
+  --npa-yellow-300: #f1e980;
+  --npa-yellow-400: #eee568;
+  --npa-yellow-500: #eade42;
+  --npa-yellow-600: #d5ca3c;
+  --npa-yellow-700: #a69e2f;
+  --npa-yellow-800: #817a24;
+  --npa-yellow-900: #625d1c;
+
+  --npa-green-50: #e7f2ee;
+  --npa-green-100: #b3d6cc;
+  --npa-green-200: #8ec3b3;
+  --npa-green-300: #5ba790;
+  --npa-green-400: #3b967a;
+  --npa-green-500: #0a7c59;
+  --npa-green-600: #097151;
+  --npa-green-700: #07583f;
+  --npa-green-800: #064431;
+  --npa-green-900: #043425;
+
+  --npa-red-50: #fdecec;
+  --npa-red-100: #f8c3c3;
+  --npa-red-200: #f5a6a6;
+  --npa-red-300: #f07e7e;
+  --npa-red-400: #ed6565;
+  --npa-red-500: #e93e3e;
+  --npa-red-600: #d43838;
+  --npa-red-700: #a52c2c;
+  --npa-red-800: #802222;
+  --npa-red-900: #621a1a;
+
+  --npa-orange-50: #fff8e6;
+  --npa-orange-100: #ffeab2;
+  --npa-orange-200: #ffdf8d;
+  --npa-orange-300: #ffd15a;
+  --npa-orange-400: #ffc839;
+  --npa-orange-500: #ffba08;
+  --npa-orange-600: #e8a907;
+  --npa-orange-700: #b58406;
+  --npa-orange-800: #8c6604;
+  --npa-orange-900: #6b4e03;
+
+  --npa-blue-50: #e9f1f8;
+  --npa-blue-100: #bbd2e9;
+  --npa-blue-200: #9bbcdf;
+  --npa-blue-300: #6d9ed0;
+  --npa-blue-400: #518bc7;
+  --npa-blue-500: #256eb9;
+  --npa-blue-600: #2264a8;
+  --npa-blue-700: #1a4e83;
+  --npa-blue-800: #143d66;
+  --npa-blue-900: #102e4e;
+
+  --npa-grey-50: #fafafa;
+  --npa-grey-100: #f3f3f3;
+  --npa-grey-200: #dadada;
+  --npa-grey-300: #c8c8c8;
+  --npa-grey-400: #afafaf;
+  --npa-grey-500: #a0a0a0;
+  --npa-grey-600: #888888;
+  --npa-grey-700: #7c7c7c;
+  --npa-grey-800: #616161;
+  --npa-grey-900: #4b4b4b;
+  --npa-grey-950: #393939;
+
+  --npa-black: #1d1d1d;
+  --npa-white: #ffffff;
+
+  /* ---------------------------------------------------------------- */
+  /* Semantiska tokens                                                  */
+  /* ---------------------------------------------------------------- */
+
+  /* Brand */
+  --npa-brand-accent: var(--npa-yellow-500);
+  --npa-brand-accent-hover: var(--npa-yellow-600);
+  --npa-brand-on-accent: var(--npa-black);
+
+  /* Navigation */
+  --npa-nav-accent: var(--npa-yellow-500);
+  --npa-nav-background: var(--npa-black);
+  --npa-nav-text: var(--npa-white);
+  --npa-nav-footer-accent: var(--npa-yellow-600);
+  --npa-nav-breadcrumb-default: var(--npa-grey-400);
+  --npa-nav-breadcrumb-active: var(--npa-blue-500);
+  --npa-nav-tab-active-background: var(--npa-yellow-500);
+  --npa-nav-tab-active-border: var(--npa-blue-500);
+  --npa-nav-tab-active-text: var(--npa-black);
+  --npa-nav-tab-hover-background: var(--npa-blue-50);
+  --npa-nav-tab-inactive-text: var(--npa-grey-700);
+
+  /* Action – primary */
+  --npa-action-primary-background: var(--npa-blue-500);
+  --npa-action-primary-background-hover: var(--npa-blue-700);
+  --npa-action-primary-background-active: var(--npa-blue-800);
+  --npa-action-primary-disabled-background: var(--npa-blue-200);
+  --npa-action-primary-text: var(--npa-white);
+
+  /* Action – secondary */
+  --npa-action-secondary-background: var(--npa-grey-600);
+  --npa-action-secondary-background-hover: var(--npa-grey-800);
+  --npa-action-secondary-disabled-background: var(--npa-grey-300);
+  --npa-action-secondary-text: var(--npa-white);
+
+  /* Action – tertiary */
+  --npa-action-tertiary-background: var(--npa-blue-100);
+  --npa-action-tertiary-background-hover: var(--npa-blue-200);
+  --npa-action-tertiary-disabled-text: var(--npa-white);
+  --npa-action-tertiary-text: var(--npa-blue-800);
+
+  /* Action – success */
+  --npa-action-success-background: var(--npa-green-500);
+  --npa-action-success-background-hover: var(--npa-green-700);
+  --npa-action-success-disabled-background: var(--npa-green-200);
+  --npa-action-success-text: var(--npa-white);
+
+  /* Action – danger */
+  --npa-action-danger-background: var(--npa-red-500);
+  --npa-action-danger-background-hover: var(--npa-red-700);
+  --npa-action-danger-disabled-background: var(--npa-red-200);
+  --npa-action-danger-text: var(--npa-white);
+
+  /* Action – ghost */
+  --npa-action-ghost-background-hover: var(--npa-blue-50);
+  --npa-action-ghost-border: var(--npa-blue-200);
+  --npa-action-ghost-text: var(--npa-blue-500);
+  --npa-action-ghost-disabled-border: var(--npa-blue-200);
+  --npa-action-ghost-disabled-text: var(--npa-blue-200);
+
+  /* Action – disabled (generisk) */
+  --npa-action-disabled-background: var(--npa-grey-100);
+  --npa-action-disabled-border: var(--npa-grey-300);
+  --npa-action-disabled-text: var(--npa-grey-500);
+
+  /* Form */
+  --npa-form-input-background: var(--npa-white);
+  --npa-form-input-background-disabled: var(--npa-grey-100);
+  --npa-form-input-background-error: var(--npa-red-50);
+  --npa-form-input-background-success: var(--npa-green-50);
+  --npa-form-input-border: var(--npa-grey-400);
+  --npa-form-input-border-disabled: var(--npa-grey-300);
+  --npa-form-input-border-error: var(--npa-red-500);
+  --npa-form-input-border-focus: var(--npa-blue-500);
+  --npa-form-input-border-success: var(--npa-green-500);
+  --npa-form-input-placeholder: var(--npa-grey-600);
+  --npa-form-input-text: var(--npa-black);
+  --npa-form-input-text-disabled: var(--npa-grey-500);
+
+  /* Select */
+  --npa-select-background: var(--npa-white);
+  --npa-select-highlighted-row: var(--npa-blue-100);
+  --npa-select-item-hover-background: var(--npa-blue-50);
+  --npa-select-item-selected-background: var(--npa-blue-500);
+  --npa-select-item-selected-text: var(--npa-white);
+  --npa-select-section-header-background: var(--npa-blue-50);
+
+  /* Status */
+  --npa-status-error-background: var(--npa-red-50);
+  --npa-status-error-border: var(--npa-red-500);
+  --npa-status-error-icon: var(--npa-red-500);
+  --npa-status-error-text: var(--npa-red-700);
+  --npa-status-info-background: var(--npa-blue-50);
+  --npa-status-info-border: var(--npa-blue-400);
+  --npa-status-info-icon: var(--npa-blue-500);
+  --npa-status-info-text: var(--npa-blue-900);
+  --npa-status-success-background: var(--npa-green-50);
+  --npa-status-success-border: var(--npa-green-500);
+  --npa-status-success-icon: var(--npa-green-500);
+  --npa-status-success-text: var(--npa-green-900);
+  --npa-status-warning-background: var(--npa-orange-50);
+  --npa-status-warning-border: var(--npa-orange-500);
+  --npa-status-warning-icon: var(--npa-orange-500);
+  --npa-status-warning-text: var(--npa-orange-900);
+
+  /* Table */
+  --npa-table-cell-border: var(--npa-grey-200);
+  --npa-table-header-background: var(--npa-blue-100);
+  --npa-table-header-border: var(--npa-blue-500);
+  --npa-table-header-text: var(--npa-blue-800);
+  --npa-table-row-default-background: var(--npa-white);
+  --npa-table-row-alternate-background: var(--npa-blue-50);
+  --npa-table-row-hover-background: var(--npa-blue-50);
+
+  /* Tag */
+  --npa-tag-error-background: var(--npa-red-100);
+  --npa-tag-error-text: var(--npa-red-900);
+  --npa-tag-info-background: var(--npa-blue-100);
+  --npa-tag-info-text: var(--npa-blue-900);
+  --npa-tag-success-background: var(--npa-green-100);
+  --npa-tag-success-text: var(--npa-green-900);
+  --npa-tag-warning-background: var(--npa-yellow-100);
+  --npa-tag-warning-text: var(--npa-yellow-900);
+
+  /* Text */
+  --npa-text-default: var(--npa-black);
+  --npa-text-secondary: var(--npa-grey-700);
+  --npa-text-muted: var(--npa-grey-600);
+  --npa-text-disabled: var(--npa-grey-500);
+  --npa-text-link: var(--npa-blue-500);
+  --npa-text-link-hover: var(--npa-blue-700);
+  --npa-text-on-brand: var(--npa-black);
+  --npa-text-on-dark: var(--npa-white);
+  --npa-text-on-primary: var(--npa-white);
+
+  /* Surface */
+  --npa-surface-default: var(--npa-white);
+  --npa-surface-subtle: var(--npa-grey-50);
+  --npa-surface-muted: var(--npa-grey-100);
+  --npa-surface-inverse: var(--npa-black);
+  --npa-surface-overlay: var(--npa-black);
+
+  /* Border */
+  --npa-border-default: var(--npa-grey-200);
+  --npa-border-strong: var(--npa-grey-300);
+  --npa-border-stronger: var(--npa-grey-400);
+  --npa-border-primary: var(--npa-blue-500);
+  --npa-border-focus: var(--npa-black);
+  --npa-border-error: var(--npa-red-500);
+  --npa-border-success: var(--npa-green-200);
+
+  /* ---------------------------------------------------------------- */
+  /* Spacing – spacing/1 … spacing/12                                   */
+  /* ---------------------------------------------------------------- */
+
+  --npa-spacing-1: 4px;
+  --npa-spacing-2: 8px;
+  --npa-spacing-3: 12px;
+  --npa-spacing-4: 16px;
+  --npa-spacing-5: 20px;
+  --npa-spacing-6: 24px;
+  --npa-spacing-7: 32px;
+  --npa-spacing-8: 40px;
+  --npa-spacing-9: 48px;
+  --npa-spacing-10: 64px;
+  --npa-spacing-11: 80px;
+  --npa-spacing-12: 96px;
+
+  /* ---------------------------------------------------------------- */
+  /* Typografi – Cocogoose Pro                                          */
+  /* Vikterna heter i Figma Light (300), Semilight (350), Darkmode (370) */
+  /* ---------------------------------------------------------------- */
+
+  --npa-font-sans: "Cocogoose Pro", "Helvetica Neue", Arial, sans-serif;
+
+  --npa-font-weight-light: 300;
+  --npa-font-weight-semilight: 350;
+  --npa-font-weight-darkmode: 370;
+  --npa-font-weight-regular: 400;
+
+  /* Heading */
+  --npa-text-h1-size: 32px;
+  --npa-text-h1-line: 40px;
+  --npa-text-h1-weight: var(--npa-font-weight-darkmode);
+  --npa-text-h2-size: 24px;
+  --npa-text-h2-line: 30px;
+  --npa-text-h2-weight: var(--npa-font-weight-semilight);
+  --npa-text-h3-size: 20px;
+  --npa-text-h3-line: 26px;
+  --npa-text-h3-weight: var(--npa-font-weight-semilight);
+  --npa-text-h4-size: 18px;
+  --npa-text-h4-line: 24px;
+  --npa-text-h4-weight: var(--npa-font-weight-semilight);
+
+  /* Body */
+  --npa-text-body-size: 14px;
+  --npa-text-body-line: 24px;
+  --npa-text-body-weight: var(--npa-font-weight-light);
+  --npa-text-body-medium-weight: var(--npa-font-weight-semilight);
+  --npa-text-body-strong-weight: var(--npa-font-weight-darkmode);
+
+  /* UI – 14px/20px */
+  --npa-text-ui-size: 14px;
+  --npa-text-ui-line: 20px;
+  --npa-text-action-weight: var(--npa-font-weight-darkmode);
+  --npa-text-link-weight: var(--npa-font-weight-darkmode);
+  --npa-text-label-weight: var(--npa-font-weight-semilight);
+  --npa-text-input-weight: var(--npa-font-weight-light);
+  --npa-text-item-weight: var(--npa-font-weight-light);
+  --npa-text-breadcrumb-weight: var(--npa-font-weight-light);
+
+  /* Small – 12px/18px */
+  --npa-text-small-size: 12px;
+  --npa-text-small-line: 18px;
+  --npa-text-badge-weight: var(--npa-font-weight-semilight);
+  --npa-text-detail-weight: var(--npa-font-weight-light);
+  --npa-text-detail-strong-weight: var(--npa-font-weight-darkmode);
+
+  /* ---------------------------------------------------------------- */
+  /* Grid – från sidan "Spacing & Grid"                                 */
+  /* ---------------------------------------------------------------- */
+
+  --npa-breakpoint-tablet: 768px;
+  --npa-breakpoint-laptop: 1024px;
+  --npa-breakpoint-desktop: 1440px;
+
+  --npa-grid-columns-mobile: 4;
+  --npa-grid-columns-tablet: 8;
+  --npa-grid-columns-laptop: 12;
+  --npa-grid-columns-desktop: 12;
+
+  --npa-grid-gutter-mobile: 16px;
+  --npa-grid-gutter-tablet: 16px;
+  --npa-grid-gutter-laptop: 24px;
+  --npa-grid-gutter-desktop: 24px;
+
+  --npa-grid-margin-mobile: 16px;
+  --npa-grid-margin-tablet: 32px;
+  --npa-grid-margin-laptop: 48px;
+  --npa-grid-margin-desktop: 80px;
+}
