@@ -59,6 +59,37 @@ Två utility-klasser för samma CSS-egenskap på samma element: ordningen i mark
 det är ordningen i den genererade stilmallen som gäller. Villkora klassen i stället för att lita på
 att den sista vinner.
 
+## WIP-märkning i Figma
+
+Biblioteket är under uppbyggnad. Grundregeln är **opt-out**: allt som är en riktig Figma-komponent
+byggs, utom det som är märkt.
+
+**Märk med prefixet `[WIP]`.** Det fungerar på fyra nivåer och ärvs nedåt:
+
+| Nivå | Exempel | Betyder |
+| --- | --- | --- |
+| Sida | `[WIP] Overlays` | Hela sidan hoppas över |
+| Sektion | `[WIP] Utforskande` | Allt i sektionen hoppas över |
+| Komponent | `[WIP] Expander Button` | Komponenten hoppas över |
+| Variantset | `[WIP] Time Picker` | Hela variantsetet hoppas över |
+
+Inget annat behöver märkas. Det som redan filtreras bort automatiskt:
+
+- **Dokumentation.** Page Header-ramar, beskrivningstexter och etikettkolumner är vanliga ramar,
+  inte komponenter, och plockas aldrig upp som byggbara.
+- **Tomma sidor.** Saknas innehåll finns inget att bygga.
+- **Gömda lager.** Används som av-läge för booleans (`Has Icon` på Button), aldrig som statusmarkör.
+
+Statusen får **inte** ligga i komponentens beskrivningsfält — det fältet syns inte via MCP:n.
+Beskrivningarna i filen är textlager bredvid komponenterna, och de läses som dokumentation, inte
+som status.
+
+**Ofullständiga komponenter är inte samma sak som WIP.** Att Button saknar fokustillstånd är en
+lucka jag rapporterar, inte något du behöver märka. Märk bara det som inte ska byggas alls än.
+
+**Säkerhetsnät:** innan varje omgång listas vad som bedömts som byggbart, för godkännande. Det
+fångar komponenter där märkningen glömts.
+
 ## Öppna frågor
 
 - Radius-tokens saknas i Figma. Komponenternas hörnradier läses per komponent tills det finns en
