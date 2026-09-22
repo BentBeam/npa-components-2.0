@@ -20,6 +20,8 @@ type Story = StoryObj<typeof meta>;
 
 const PALETTER = ["yellow", "green", "red", "orange", "blue", "grey"] as const;
 const STEG = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900] as const;
+// Grey har två extra steg som de andra paletterna saknar.
+const GREY_STEG = [50, 75, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
 
 function Swatch({ token, namn }: { token: string; namn: string }) {
   return (
@@ -176,7 +178,7 @@ export const Primitiver: Story = {
         <section key={palett} className="mb-8">
           <h2 className="mb-3 text-h4 text-text-default capitalize">{palett}</h2>
           <div className="flex flex-wrap gap-2">
-            {STEG.map((steg) => (
+            {(palett === "grey" ? GREY_STEG : STEG).map((steg) => (
               <div key={steg} className="w-[88px]">
                 <div
                   className="h-16 rounded border border-border-default"
@@ -185,12 +187,6 @@ export const Primitiver: Story = {
                 <div className="mt-1 text-small font-semilight">{steg}</div>
               </div>
             ))}
-            {palett === "grey" && (
-              <div className="w-[88px]">
-                <div className="h-16 rounded border border-border-default bg-grey-950" />
-                <div className="mt-1 text-small font-semilight">950</div>
-              </div>
-            )}
           </div>
         </section>
       ))}

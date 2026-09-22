@@ -213,11 +213,32 @@ etiketten redan ligger på `Text/Disabled`.
 Auto-layout horisontellt med 4 px mellanrum, så ett framtida `RequiredMarker`
 kan läggas till utan att strukturen ändras.
 
-### Öppen fråga
+### RequiredMarker
 
-`Required` finns inte som egenskap. Biblioteket har idag ingen obligatorisk-
-markör någonstans, så att lägga till en innebär att designa något nytt snarare
-än att spegla det som finns. Tas när markören är bestämd.
+Beslutad 2026-09-22: diskret markör, grå asterisk. Byggd som en egen elektron
+`RequiredMarker` (2012:2) i stället för en lös asterisk i Label — asterisk i
+textstilen `UI/Label` med färgen bunden till `Text/Muted`.
+
+Label fick därmed en tredje egenskap:
+
+| Egenskap | Typ | Standard |
+| --- | --- | --- |
+| `Required` | Boolean | `false` |
+
+Egenskapen styr synligheten på en nästlad `RequiredMarker`-instans. Den måste
+läggas på **variantsetet**, inte på varianterna — `addComponentProperty` på en
+variant som redan sitter i ett set ger felet *"Can only set component property
+definitions on a product component"*.
+
+Verifierat med tre tillfälliga instanser: text byts via `Text`, asterisken
+tänds av `Required`, och Disabled tonar ned etiketten.
+
+### Kvarstående detalj
+
+I `State=Disabled` ligger etiketten på `Text/Disabled` (#a0a0a0) medan
+asterisken ligger på `Text/Muted` (#888) och därmed blir något mörkare än
+texten den hör till. Att tona ned markören kräver ett eget `State` på
+`RequiredMarker`. Inte designat på eget bevåg.
 
 ---
 
@@ -271,3 +292,62 @@ och `Focus/Ring Default|Success|Error`.
 
 `Grey/75` finns som primitiv i Figma men saknas i `src/styles/tokens.css`, som
 bara har steg 50–950. Behöver läggas till vid nästa tokensynk.
+
+---
+
+## Colors-sidan: tillägg och städning
+
+Utfört 2026-09-22.
+
+### Beslut
+
+- Swatchen `Form/Input Border Hover` togs bort. Den dokumenterade en token som
+  inte finns, och fältkomponenterna har inget hover-tillstånd — de går från
+  Default till Focused.
+- Samtliga 21 odokumenterade variabler fick swatchar.
+
+### Plats i rutnätet
+
+Sidan är ett handbyggt rutnät: semantiska swatchar 192 × 96 i kolumner på
+x = 80, 282, 484, 686, 888, 1090 med 106 px radavstånd, primitiver 88 × 114 med
+96 px kolumnavstånd. Grupprubriker i Inter Bold 13 sitter 32 px över första
+raden.
+
+Action-gruppen hade bara två lediga platser men behövde tretton, och Focus
+behövde en helt ny grupp. Därför flyttades allt från Form-rubriken och nedåt
+212 px, och allt från Select-rubriken ytterligare 170 px — 79 noder, i ett
+atomiskt steg. Sidan är nu 4815 px hög i stället för 4433.
+
+### Tillagt
+
+| Grupp | Antal | Placering |
+| --- | --- | --- |
+| Action | 13 | Fyller raden på y = 2129 och två nya rader |
+| Form | 2 | `Help Text` och `Error Text` i gruppens sista rad |
+| Focus | 3 | Ny grupp mellan Form och Select, rubriken klonad för identisk stil |
+| Primitiver | 3 | `Grey/75`, `White` och `Black` sist i Grey-raden |
+
+`White` och `Black` ligger under rubriken `Grey` eftersom det inte finns någon
+neutral-rad. Flytta dem gärna om det känns fel — det är en bedömning, inte ett
+faktum.
+
+Rektanglarna för `White` och `Grey/50` fick en 1 px kant, annars syns de inte
+mot sidans bakgrund.
+
+Form-gruppen flödades om efter borttagningen så inget hål blev kvar.
+
+### Slutkontroll
+
+181 av 182 swatchar korrekta vid första genomläsningen; den sista var
+`Form/Input Border`, vars bildtext stod på `Grey/300` — värdet från den
+hårdkodade färgen som rättades tidigare. Nu `Grey/400`.
+
+Slutläge: **182 swatchar, inga fel, noll variabler utan swatch, noll
+överlappande noder.**
+
+### Följd för koden
+
+`Grey/75` = `#F5F5F7` är tillagd i `src/styles/tokens.css` och
+`src/styles/tailwind-theme.css`. Storybook-sidan Färger visar nu Greys tolv steg
+via en egen stegtabell i stället för specialfallet för 950. Safelisten gick från
+176 till 177 färger.
